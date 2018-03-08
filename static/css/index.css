@@ -1,0 +1,35 @@
+.saler .el-submenu__title:hover {
+  background: #eef6ff;
+}
+.oto-input-container .el-input__inner:focus {
+  border-color: #20A0FF;
+}
+.oto-input-container .el-select .el-input.is-focus .el-input__inner {
+  border-color: #20A0FF;
+}
+.oto-input-container .el-input__inner:focus {
+  border-color: #20A0FF;
+}
+.ci-input input {
+  height: 32px;
+}
+.address-container .el-dialog {
+  width: 620px;
+}
+.el-popover {
+  padding: 0 !important;
+}
+.el-popover .wr-list .wr-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 36px;
+  padding: 12px;
+  cursor: pointer;
+}
+.el-popover .wr-list .wr-item:hover {
+  background: #feefeb;
+}
+.el-popover .wr-list .wr-item .wri-code {
+  color: #999;
+}

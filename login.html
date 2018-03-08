@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{{icon_url}}" type="image/x-icon">  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit"> 
+  <title>{{title_name}}</title>
+  <link rel="stylesheet" href="./static/css/login.css">
+</head>
+<body>
+  <div class="header-container">
+    <div class="header">
+      <img class="logo" src="./static/img/p_yhc.png" alt="logo"/>
+      <div class="utils">
+        <button class="empty" onclick="location.href='/regist'">注册</button>
+        <button id="login-button" class="special" onclick="history.go(0)">登录</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="account-container">
+    <div id="app"></div>
+  </div>
+  <script id="login" type="text/x-template">
+    <div ref="login" class="login">
+      <div class="title">登录</div>
+      <div class="userinfo">
+        <input v-model="username" placeholder="输入用户名" @keydown.enter="login" />
+        <input v-model="password" type="password" placeholder="输入密码" @keydown.enter="login" />
+        <div class="utils">
+          <label>
+            <input type="checkbox" v-model="checked" />
+            记住密码
+            <div class="show-box" />
+          </label>
+          <span class="forget" @click="forget">忘记密码?</span>
+        </div>
+        <button @click="login">登录<img id="little-mum" src="https://007vin.com/img/load.gif" /></button>
+      </div>
+      <div class="regist-container">
+        没有账号？<span @click="regist">立即注册</span>
+      </div>
+    </div>
+  </script>
+
+  <script id="forget" type="text/x-template">
+    <div class="forget">
+      <div class="back"><span @click="back"><  账号密码登录</span></div>
+      <span class="title">手机验证修改密码</span>
+      <div class="input-container"><input v-model="inputData.phone" placeholder="手机号" autofocus /></div>
+      <div class="input-container">
+        <input v-model="inputData.sms_code" placeholder="验证码" />
+        <button class="check-button"
+          @click="getCertificationCode" v-text="checkStr"></button>
+      </div>
+      <div class="input-container"><input v-model="inputData.password" placeholder="新密码（6位以上数字或字母）" type="password" /></div>
+      <div class="input-container"><input v-model="inputData.checkPassword" placeholder="确认密码（6位以上数字或字母）" type="password" /></div>
+      <button @click="submit">确认</button>
+    </div>
+  </script>
+
+  <h3>联盟合作加盟商</h3>
+  <ul id="companys"></ul>
+  <img class="group" src="./static/img/groups.png" alt="group" />
+  <div class="bottom">
+    <!-- <span class="about">关于我们</span> -->
+    <span class="cer">© 2017 yhcqp.com</span>
+    <a class="cer" href="http://www.miitbeian.gov.cn/">浙ICP备：17026959号-3</a>
+  </div>
+
+  <script src="./static/js/polyfill.min.js"></script>
+  <!-- <script defer src="/static/js/vue.js"></script> -->
+  <script defer src="./static/js/vue.min.js"></script>
+  <script src="./static/js/axios.min.js"></script>
+  <script defer src="./static/js/login.js"></script>
+</body>
+</html>

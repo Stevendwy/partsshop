@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" href="{{icon_url}}" type="image/x-icon">  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="renderer" content="webkit"> 
+  <title>{{title_name}}</title>
+  <link rel="stylesheet" href="/static/css/sales-ticket.css">
+</head>
+<body>
+  <div class="header-container">
+    销售单预览
+  </div>
+
+  <div id="printerDOM">
+    <div id="app"></div>
+  </div>
+  <script id="printer" type="text/x-template">
+    <div class="printer-container">
+      <div class="ticked-container">
+        <div class="header">
+          <span v-text="sellerInfo.company"></span>
+          <span>销售单</span>
+        </div>
+        <div class="buyer-info">
+          <div class="bi-name" v-text="sReceiver"></div>
+          <div class="bi-id" v-text="sOrderId"></div>
+          <div class="bi-phone" v-text="sContactPhone"></div>
+          <div class="bi-buyer" v-text="sBuyerName"></div>
+          <div class="bi-date" v-text="sOrderDate"></div>
+          <div class="bi-seller">销售员 萤火虫网站</div>
+        </div>
+        <div class="table">
+          <div class="table-title">
+            <div class="item">序号</div>
+            <div class="item">零件号</div>
+            <div class="item">零件名称</div>
+            <div class="item">车型</div>
+            <div class="item">数量</div>
+            <div class="item">单价</div>
+            <div class="item">金额</div>
+            <div class="item">备注</div>
+          </div>
+          <div class="table-row"
+            v-for="(order, oIndex) in orders" :key="oIndex">
+            <div class="item" v-text="oIndex + 1"></div>
+            <div class="item" v-text="order.pid"></div>
+            <div class="item" v-text="order.label"></div>
+            <div class="item" v-text="order.car"></div>
+            <div class="item" v-text="order.quantity"></div>
+            <div class="item" v-text="order.price"></div>
+            <div class="item" v-text="order.money"></div>
+            <div class="item" v-text="order.mark"></div>
+          </div>
+        </div>
+        <div class="total">
+          <div class="t-title">合计</div>
+          <div class="t-count" v-text="pData.total_quantity"></div>
+          <div class="t-price" v-text="pData.total_amount"></div>
+          <div class="t-money" v-text="pData.total_amount"></div>
+        </div>
+        <div class="remind">
+          <div class="r-express">物流发货</div>
+          <div class="r-total" v-text="rTotalAmountCN"></div>
+          <div class="r-type">网站支付</div>
+          <div class="r-address" v-text="rAddress"></div>
+        </div>
+      </div>
+      <div class="seller-info" v-text="siAddress"><span></span></div>
+      <div class="seller-info" v-text="siPhone"><span></span></div>
+    </div>
+  </script>
+  <div class="printer"><button onclick="printerDOM()">打印</button></div>
+
+  <script src="/static/js/polyfill.min.js"></script>
+  <!-- <script defer src="/static/js/vue.js"></script> -->
+  <script defer src="/static/js/vue.min.js"></script>
+  <script src="/static/js/axios.min.js"></script>   
+  <script defer src="/static/js/sales-ticket.js"></script>
+  <script>
+    function printerDOM() {
+      var oldContent = document.body.innerHTML
+      var printerConter = document.querySelector('#printerDOM').innerHTML
+      document.body.innerHTML = printerConter
+      window.print()
+      document.body.innerHTML = oldContent
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: 14px;
+}
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  color: #EC6337;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+}
+.ticked-container {
+  width: 1024px;
+  border: 1px solid #000000;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+.ticked-container * {
+  box-sizing: border-box;
+}
+.ticked-container .header {
+  position: relative;
+  border-bottom: 1px solid black;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #333;
+}
+.ticked-container .header span:nth-child(2) {
+  position: absolute;
+  bottom: 4px;
+  right: 12px;
+  font-size: 14px;
+  line-height: normal;
+}
+.ticked-container .buyer-info {
+  display: flex;
+  flex-wrap: wrap;
+  height: 60px;
+  align-items: center;
+  padding: 0 12px;
+  font-size: 14px;
+  border-bottom: 1px solid black;
+}
+.ticked-container .buyer-info .bi-name {
+  width: 500px;
+}
+.ticked-container .buyer-info .bi-id {
+  width: 500px;
+}
+.ticked-container .buyer-info .bi-phone {
+  width: 200px;
+}
+.ticked-container .buyer-info .bi-buyer {
+  width: 300px;
+}
+.ticked-container .buyer-info .bi-date {
+  width: 300px;
+}
+.ticked-container .buyer-info .bi-seller {
+  width: 200px;
+  text-align: right;
+}
+.ticked-container .table {
+  width: 1024px;
+}
+.ticked-container .table .table-item {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.ticked-container .table .table-item .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  overflow: hidden;
+  border-right: 1px solid black;
+}
+.ticked-container .table .table-item .item:nth-child(1) {
+  width: 40px;
+}
+.ticked-container .table .table-item .item:nth-child(2) {
+  width: 120px;
+}
+.ticked-container .table .table-item .item:nth-child(3) {
+  width: 200px;
+}
+.ticked-container .table .table-item .item:nth-child(4) {
+  width: 100px;
+}
+.ticked-container .table .table-item .item:nth-child(5) {
+  width: 100px;
+}
+.ticked-container .table .table-item .item:nth-child(6) {
+  width: 110px;
+}
+.ticked-container .table .table-item .item:nth-child(7) {
+  width: 110px;
+}
+.ticked-container .table .table-item .item:nth-child(8) {
+  width: 244px;
+  border-right: 0;
+}
+.ticked-container .table .table-title {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.ticked-container .table .table-title .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  overflow: hidden;
+  border-right: 1px solid black;
+}
+.ticked-container .table .table-title .item:nth-child(1) {
+  width: 40px;
+}
+.ticked-container .table .table-title .item:nth-child(2) {
+  width: 120px;
+}
+.ticked-container .table .table-title .item:nth-child(3) {
+  width: 200px;
+}
+.ticked-container .table .table-title .item:nth-child(4) {
+  width: 100px;
+}
+.ticked-container .table .table-title .item:nth-child(5) {
+  width: 100px;
+}
+.ticked-container .table .table-title .item:nth-child(6) {
+  width: 110px;
+}
+.ticked-container .table .table-title .item:nth-child(7) {
+  width: 110px;
+}
+.ticked-container .table .table-title .item:nth-child(8) {
+  width: 244px;
+  border-right: 0;
+}
+.ticked-container .table .table-row {
+  display: flex;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+.ticked-container .table .table-row .item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  overflow: hidden;
+  border-right: 1px solid black;
+}
+.ticked-container .table .table-row .item:nth-child(1) {
+  width: 40px;
+}
+.ticked-container .table .table-row .item:nth-child(2) {
+  width: 120px;
+}
+.ticked-container .table .table-row .item:nth-child(3) {
+  width: 200px;
+}
+.ticked-container .table .table-row .item:nth-child(4) {
+  width: 100px;
+}
+.ticked-container .table .table-row .item:nth-child(5) {
+  width: 100px;
+}
+.ticked-container .table .table-row .item:nth-child(6) {
+  width: 110px;
+}
+.ticked-container .table .table-row .item:nth-child(7) {
+  width: 110px;
+}
+.ticked-container .table .table-row .item:nth-child(8) {
+  width: 244px;
+  border-right: 0;
+}
+.ticked-container .total {
+  display: flex;
+  border-bottom: 1px solid black;
+  padding: 0 12px;
+}
+.ticked-container .total > div {
+  line-height: 40px;
+}
+.ticked-container .total .t-title {
+  width: 448px;
+}
+.ticked-container .total .tt-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ticked-container .total .t-count {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+}
+.ticked-container .total .t-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+}
+.ticked-container .total .t-money {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+}
+.ticked-container .remind {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 74px;
+  padding: 0 12px;
+}
+.ticked-container .remind > div {
+  white-space: pre-wrap;
+}
+.ticked-container .remind .r-express {
+  width: 564px;
+}
+.ticked-container .remind .r-total {
+  width: 200px;
+  text-align: right;
+}
+.ticked-container .remind .r-type {
+  width: 236px;
+  text-align: right;
+}
+.seller-info {
+  box-sizing: border-box;
+  width: 1024px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+.printer {
+  width: 1024px;
+  text-align: right;
+}
+.printer button {
+  width: 160px;
+  height: 40px;
+  background: #EC6337;
+  color: white;
+  box-shadow: 0 0 2px 0 rgba(236, 99, 55, 0.12), 0 2px 2px 0 rgba(236, 99, 55, 0.24);
+  border-radius: 4px;
+  border: 0;
+  margin-right: 10px;
+  outline: none;
+  cursor: pointer;
+}

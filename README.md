@@ -1,2 +1,2 @@
-# partsshop
-use for sell parts
+1. npm install
+2. npm start

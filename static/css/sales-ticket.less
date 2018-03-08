@@ -1,0 +1,226 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  font-size: 14px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  color: #EC6337;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,0.12), 0 2px 2px 0 rgba(0,0,0,0.24);
+}
+
+.ticked-container {
+  width: 1024px;
+  border: 1px solid #000000;
+  margin-top: 16px;
+  margin-bottom: 8px;
+
+  @bLine: 1px solid black;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .header {
+    position: relative;
+    border-bottom: @bLine;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+
+    span:nth-child(2) {
+      position: absolute;
+      bottom: 4px;
+      right: 12px;
+      font-size: 14px;
+      line-height: normal;
+    }
+  }
+
+  .buyer-info {
+    display: flex;
+    flex-wrap: wrap;
+    height: 60px;
+    align-items: center;
+    padding: 0 12px;
+    font-size: 14px;
+    border-bottom: @bLine;
+
+    .bi-name {
+      width: 500px;
+    }
+
+    .bi-id {
+      width: 500px;
+    }
+
+    .bi-phone {
+      width: 200px;
+    }
+
+    .bi-buyer {
+      width: 300px;
+    }
+
+    .bi-date {
+      width: 300px;
+    }
+
+    .bi-seller {
+      width: 200px;
+      text-align: right;
+    }
+  }
+
+  .table {
+    width: 1024px;
+
+    .table-item {
+      display: flex;
+      width: 100%;
+      border-bottom: @bLine;
+
+      .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        overflow: hidden;
+        border-right: @bLine;
+      }
+
+      .item:nth-child(1) {
+        width: 40px;
+      }
+      .item:nth-child(2) {
+        width: 120px;
+      }
+      .item:nth-child(3) {
+        width: 200px;
+      }
+      .item:nth-child(4) {
+        width: 100px;
+      }
+      .item:nth-child(5) {
+        width: 100px;
+      }
+      .item:nth-child(6) {
+        width: 110px;
+      }
+      .item:nth-child(7) {
+        width: 110px;
+      }
+      .item:nth-child(8) {
+        width: 244px;
+        border-right: 0;
+      }
+    }
+
+    .table-title {
+      .table-item;
+    }
+
+    .table-row {
+      .table-item;
+    }
+  }
+
+  .total {
+    display: flex;
+    border-bottom: @bLine;
+    padding: 0 12px;
+
+    &>div {
+      line-height: 40px;
+    }
+
+    .t-title {
+      width: 448px;
+    }
+
+    .tt-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .t-count {
+      .tt-item;
+      width: 100px;
+    }
+
+    .t-price {
+      .tt-item;
+      width: 110px;
+    }
+    
+    .t-money {
+      .tt-item;
+      width: 110px;
+    }
+  }
+
+  .remind {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 74px;
+    padding: 0 12px;
+
+    &>div {
+      white-space: pre-wrap;
+    }
+    
+    .r-express {
+      width: 564px;
+    }
+
+    .r-total {
+      width: 200px;
+      text-align: right;
+    }
+
+    .r-type {
+      width: 236px;
+      text-align: right;
+    }
+
+    .r-address {
+
+    }
+  }
+}
+
+.seller-info {
+  box-sizing: border-box;
+  width: 1024px;
+  padding-left: 10px;
+  font-size: 14px;
+}
+
+.printer {
+  width: 1024px;
+  text-align: right;
+}
+
+.printer button {
+  width: 160px;
+  height: 40px;
+  background: #EC6337;
+  color: white;
+  box-shadow: 0 0 2px 0 rgba(236,99,55,0.12), 0 2px 2px 0 rgba(236,99,55,0.24);
+  border-radius: 4px;
+  border: 0;
+  margin-right: 10px;
+  outline: none;
+  cursor: pointer;
+}

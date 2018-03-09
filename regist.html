@@ -13,7 +13,7 @@
 <body>
   <div class="header-container">
     <div class="header">
-      <img id="logo" class="logo" alt="logo"/>
+      <img id="logo" class="logo" alt="logo" src="./static/img/axiao/p_xiaomai1.png"/>
       <div class="utils">
         <button class="empty" onclick="history.go(0)">注册</button>
         <button class="special" onclick="location.href='/login'">登录</button>
@@ -184,14 +184,14 @@
   <script src="/static/js/polyfill.min.js"></script>
   <script src="/static/js/axios.min.js"></script>
   <script>
-    var logo = document.getElementById('logo')
-    axios.get('/system/community/theme')
-      .then(res => {
-        logo.src = res.data.data.standby
-      })
-      .catch(err => {
-        alert(err)
-      })
+    // var logo = document.getElementById('logo')
+    // axios.get('/system/community/theme')
+    //   .then(res => {
+    //     logo.src = res.data.data.standby
+    //   })
+    //   .catch(err => {
+    //     alert(err)
+    //   })
   </script>
   <script defer src="/static/js/vue.min.js"></script>
   <script defer src="/static/js/element-ui.js"></script>

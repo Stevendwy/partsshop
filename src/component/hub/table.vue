@@ -46,7 +46,7 @@
           </div>
 
           <div class="hrcr-item">
-            <span>{{item.channel}}</span>
+            <!-- <span>{{item.channel}}</span> -->
             <t-select
               :item="item"
               type="mill"
@@ -85,8 +85,8 @@
               <span @click="showEdit">编辑</span>
               <span v-if="isOnline(item)" @click="offline({online: 0, item})">下线</span>
               <span v-else @click="online({online: 1, item})">上线</span>
-              <span v-if="isSailing(item) || item.share_requesting" @click='cancelSale(item)'>取消特卖</span>
-              <span v-else @click='applySale(item)'>申请特卖</span>
+              <!-- <span v-if="isSailing(item) || item.share_requesting" @click='cancelSale(item)'>取消特卖</span> -->
+              <!-- <span v-else @click='applySale(item)'>申请特卖</span> -->
             </div>
           </div>
         </div>
@@ -180,7 +180,7 @@ export default {
       headerTitles: [
         "零件号",
         "名称",
-        "品牌",
+        "品质",
         "品牌设置",
         "库存、售卖数量",
         "底价、销售价",
@@ -469,11 +469,15 @@ export default {
       }
 
       .edit {
+        // display: flex;
+        // flex-direction: column;
+        // text-align: center;
+        // justify-content: space-around;
+        // height: 100%;
         display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: space-around;
+        flex-direction: row;
         height: 100%;
+        align-items: center;
 
         span{
           color: #0076ff;
@@ -494,25 +498,25 @@ export default {
       }
 
       &:nth-child(1) {
-        width: 190px;
+        width: 200px;
       }
       &:nth-child(2) {
-        width: 124px;
+        width: 148px;
       }
       &:nth-child(3) {
-        width: 108px;
+        width: 102px;
       }
       &:nth-child(4) {
-        width: 120px;
+        width: 110px;
       }
       &:nth-child(5) {
-        width: 108px;
+        width: 150px;
       }
       &:nth-child(6) {
-        width: 108px;
+        width: 204px;
       }
       &:nth-child(7) {
-        width: 42px;
+        width: 110px;
       }
       &:nth-child(8) {
         width: 84px;
@@ -541,6 +545,7 @@ export default {
         word-wrap: break-word;
         text-align: center;
         padding: 2px 0;
+        line-height: 32px;
       }
     }
 
@@ -564,6 +569,9 @@ export default {
         .hrcr-item {
           .item;
           border-right: @d8line;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
 
           &:nth-child(1) {
             border-left: @d8line;

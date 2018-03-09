@@ -1,12 +1,24 @@
 <template>
     <div class="edit-input">
         <div class="inputlist" v-for="(item, index) in titlelist" :key="index">
-            <el-input
+            <div v-if="shownum" >
+                <el-input 
+                    placeholder="请输入内容"
+                    v-model="modellist[index]"
+                    v-if="index < 2"
+                    clearable>
+                    </el-input>
+            </div>
+            <div v-else>
+                <el-input
                 placeholder="请输入内容"
                 v-model="modellist[index]"
                 clearable>
                 </el-input>
+            </div>
+            
         </div>
+        <div @click="changeShownow">clickhid</div>
         <div class="upload-container"
             v-if="!imgChange">
             <el-upload
@@ -52,6 +64,7 @@ Vue.use(CheckboxGroup);
 export default {
   data() {
     return {
+        shownum:false, //测试
         titlelist:['aaa', 'bbb', 'ccc', 'ddd'],
         modellist:['','b','c'],
 
@@ -79,6 +92,9 @@ export default {
       this.imgChange = false;
       this.cropImg = "";
     },
+    changeShownow(){
+        this.shownum = !this.shownum
+    }
   }
 };
 </script>

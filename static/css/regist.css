@@ -144,6 +144,8 @@ html body button {
   display: flex;
   justify-content: space-between;
   width: 340px;
+  height: 100px;
+  flex-wrap: wrap;
 }
 .regist .types .type {
   width: 340px;
@@ -152,7 +154,7 @@ html body button {
   outline: none;
   box-sizing: border-box;
   border-radius: 4px;
-  width: 80px;
+  width: 107px;
   background: transparent;
 }
 .regist .types .type-selected {
@@ -162,7 +164,7 @@ html body button {
   outline: none;
   box-sizing: border-box;
   border-radius: 4px;
-  width: 80px;
+  width: 107px;
   background: transparent;
   border: 1px solid #ec6337;
 }

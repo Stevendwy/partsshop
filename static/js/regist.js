@@ -31,7 +31,7 @@ let Regist = Vue.extend({
         company_type: '汽配商'
       }, // 用户信息
       checked: false,
-      types: ['汽配商', '修理厂', '4S店', '其他'], // 是否阅读同意协议
+      types: ['汽配商', '修理厂', '4S店', '保险公司', '个人', '其他'], // 是否阅读同意协议
       options: [], // 联级地区数据
       areaProps: { // 联级组件结构 key
         label: 'name',

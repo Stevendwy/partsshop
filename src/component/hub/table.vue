@@ -21,24 +21,21 @@
       <div class="hr-content">
         <div class="hrc-row"
           v-for="(item, index) in resultList" :key="index + 'item'">
-          <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">
+
+          <el-checkbox-group v-model="checkedCities" @change="handleCheckedCitiesChange">          
           <div class="hrcr-item">
             <el-checkbox  :label="item.pid" :key="item.pid"></el-checkbox>
             <!-- <span>{{item.pid}}</span> -->
+          </div>
+          </el-checkbox-group>
+
+          <div class="hrcr-item">
             <t-select
               :item="item"
               type="label"
               @update="edit"/>
           </div>
-          </el-checkbox-group>
-          <div class="hrcr-item">
-            <span>{{item.channel}}</span>
-            <t-select
-              :item="item"
-              type="mill"
-              :titles="bch.brands"
-              @update="edit"/>
-          </div>
+          
           <div class="hrcr-item">
             <span>{{item.amount_original}}</span>
             <t-select
@@ -47,6 +44,25 @@
               :titles="bch.amounts || []"
               @update="edit"/>
           </div>
+
+          <div class="hrcr-item">
+            <span>{{item.channel}}</span>
+            <t-select
+              :item="item"
+              type="mill"
+              :titles="bch.brands"
+              @update="edit"/>
+          </div>
+
+          <div class="hrcr-item">
+            <span>{{item.amount_original}}</span>
+            <t-select
+              :item="item"
+              type="amount"
+              :titles="bch.amounts || []"
+              @update="edit"/>
+          </div>
+          
           <div class="hrcr-item">
             <span>{{item.floor_price}}</span>
             <input class="price-input" type="text"
@@ -54,23 +70,7 @@
               @keydown.13="updatePrice($event.target.value, item)"
               @blur="updatePrice($event.target.value, item)">
           </div>
-          <div class="hrcr-item">
-            <span>{{'  '}}</span>
-            <t-select
-              :item="item"
-              type="address"
-              :titles="bch.cities"
-              @update="edit"/>
-          </div>
-          <div class="hrcr-item">
-            <span>{{'  '}}</span>
-            <t-select
-              :item="item"
-              type="location"
-              :titles="bch.hubs"
-              @update="edit"/>
-          </div>
-          <div class="hrcr-item">
+          <!-- <div class="hrcr-item">
             <span>{{item.shelves}}</span>
           </div>
           <div class="hrcr-item">
@@ -79,13 +79,12 @@
             <span v-if="isSailing(item)">特卖中</span>
             <span class="not-sailing" v-else-if="item.share_requesting">申请中</span>
             <span class="not-sailing" v-else></span>
-          </div>
+          </div> -->
           <div class="hrcr-item">
             <div class="edit">
               <span @click="showEdit">编辑</span>
               <span v-if="isOnline(item)" @click="offline({online: 0, item})">下线</span>
               <span v-else @click="online({online: 1, item})">上线</span>
-
               <span v-if="isSailing(item) || item.share_requesting" @click='cancelSale(item)'>取消特卖</span>
               <span v-else @click='applySale(item)'>申请特卖</span>
             </div>
@@ -179,14 +178,14 @@ export default {
   data() {
     return {
       headerTitles: [
-        "零件号、名称",
-        "产地、品牌设置 *",
+        "零件号",
+        "名称",
+        "品牌",
+        "品牌设置",
         "库存、售卖数量",
         "底价、销售价",
-        "城市 * ",
-        "仓库 *",
-        "货架",
-        "状态",
+        // "货架",
+        // "状态",
         "操作"
       ],
       dialogVisible: false,

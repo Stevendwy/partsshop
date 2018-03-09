@@ -1,32 +1,33 @@
 "use strict"
 
-!function() {
-  axios.get('http://www.yhcqp.com/system/members')
-    .then(res => {
-      if(!res.data) return
+// 默认加载供应商列表 先干掉
+// !function() {
+//   axios.get('http://www.yhcqp.com/system/members')
+//     .then(res => {
+//       if(!res.data) return
 
-      let companysDOM = document.getElementById('companys')
-      let companys = res.data.data
-      let companysLength = companys.length
-      for(let i = 0, j = (parseInt(companys.length / 6) + 1) * 6; i < j; i ++) {
-        let isEmpty = i >= companysLength
-        let company = isEmpty ? { name: '敬请期待' } : companys[i]
+//       let companysDOM = document.getElementById('companys')
+//       let companys = res.data.data
+//       let companysLength = companys.length
+//       for(let i = 0, j = (parseInt(companys.length / 6) + 1) * 6; i < j; i ++) {
+//         let isEmpty = i >= companysLength
+//         let company = isEmpty ? { name: '敬请期待' } : companys[i]
 
-        let li = ""
-        let className = ""
-        if(parseInt(i / 6) % 2 === 1) {
-          className = "even-row"
-          if(isEmpty) className += ' empty'
-        }
-        else {
-          className = "uneven-row"
-          if(isEmpty) className += " empty"
-        }
-        li = "<li class=\"" + className + "\">" + company.name + "</li>"
-        companysDOM.innerHTML += li
-      }
-    })
-}()
+//         let li = ""
+//         let className = ""
+//         if(parseInt(i / 6) % 2 === 1) {
+//           className = "even-row"
+//           if(isEmpty) className += ' empty'
+//         }
+//         else {
+//           className = "uneven-row"
+//           if(isEmpty) className += " empty"
+//         }
+//         li = "<li class=\"" + className + "\">" + company.name + "</li>"
+//         companysDOM.innerHTML += li
+//       }
+//     })
+// }()
 
 let Login = Vue.extend({
   template: '#login',

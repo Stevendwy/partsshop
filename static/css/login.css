@@ -279,7 +279,8 @@ html body button {
   color: white;
 }
 #companys {
-  display: flex;
+  /* display: flex; */
+  display: none;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
@@ -308,11 +309,19 @@ html body button {
   height: auto;
 }
 .bottom {
+  /* display: flex;
+  align-items: center;
+  width: 1024px;
+  height: 72px;
+  background-color: #333; */
   display: flex;
   align-items: center;
   width: 1024px;
   height: 72px;
   background-color: #333;
+  text-align: center;
+  justify-content: center;
+  flex-direction: column;
 }
 .bottom .about {
   font-size: 14px;

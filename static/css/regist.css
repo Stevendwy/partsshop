@@ -249,6 +249,8 @@ html body button {
   box-sizing: border-box;
   padding: 0 calc(50% - 512px);
   background-color: #333;
+  flex-direction: column;
+  justify-content: center;
 }
 .bottom .about {
   font-size: 14px;

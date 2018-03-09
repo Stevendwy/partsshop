@@ -5,11 +5,7 @@
 3. npm run build
 
 <!-- 图展 -->
-<img src="./static/readimg/img-home" alt="">
-<img src="./static/readimg/img-login" alt="">
-<img src="./static/readimg/img-con" alt="">
-
-![](){"./static/readimg/img-home"}
-![](){"./static/readimg/img-login"}
-![](){"./static/readimg/img-con"}
+<img src="./static/readimg/img-home.png" alt="">
+<img src="./static/readimg/img-login.png" alt="">
+<img src="./static/readimg/img-con.png" alt="">
 

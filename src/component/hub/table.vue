@@ -82,9 +82,15 @@
           </div> -->
           <div class="hrcr-item">
             <div class="edit">
+              <div v-if="isOnline(item)" >
+                <span><input type="radio" :name="'item' + index" checked="checked" />上线</span>
+                <span><input type="radio" :name="'item' + index" @click="offline({online: 0, item})" />下线</span>
+              </div>
+              <div v-else >
+                <span><input type="radio" :name="'item' + index" @click="online({online: 1, item})" />上线</span>
+                <span><input type="radio" :name="'item' + index" checked="checked" />下线</span>
+              </div>
               <span @click="showEdit">编辑</span>
-              <span v-if="isOnline(item)" @click="offline({online: 0, item})">下线</span>
-              <span v-else @click="online({online: 1, item})">上线</span>
               <!-- <span v-if="isSailing(item) || item.share_requesting" @click='cancelSale(item)'>取消特卖</span> -->
               <!-- <span v-else @click='applySale(item)'>申请特卖</span> -->
             </div>
@@ -177,6 +183,7 @@ export default {
   },
   data() {
     return {
+      modellist:[], //model 列表
       headerTitles: [
         "零件号",
         "名称",
@@ -479,6 +486,10 @@ export default {
         height: 100%;
         align-items: center;
 
+        &>div{
+          display: flex;
+          flex-direction: column;
+        }
         span{
           color: #0076ff;
         }

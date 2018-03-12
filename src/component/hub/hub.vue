@@ -7,7 +7,15 @@
       span.t-company {{userInfo.company}}
       span.t-hub(v-once='') 库存管理
   .h-edit(v-if="editing")
-    .backedit(@click="backEdit") 返回
+    .h-back 
+      .h-backleft
+        span 库存管理
+        span <
+        span 编辑商品
+      .h-backright
+        el-button.refresh(type='warning', :loading='fLoading', @click="backEdit" ) 返回
+        el-button.save(type='info', plain , disabled ) 预览
+        el-button.save(type='success', :loading='sLoading', @click='editSave' ) 保存
     e-dit(name="编辑")
   .h-content(v-else)
     search(title='库存管理', @search='search', @change='searchChange')
@@ -86,6 +94,9 @@ export default {
     },
     backEdit (payload){
       this.editRoundly({showedit:"hidedit"})
+    },
+    editSave (payload) {
+      console.log("saveedit")
     }
   }
 };
@@ -146,6 +157,44 @@ export default {
       }
     }
   }
+
+  .h-edit{
+      width: 1024px;
+      margin: 0 auto;
+      .h-back {
+        display: flex;
+        height: 48px;
+        line-height: 48px;
+        .h-backleft{
+            width: 25%;
+            &>span{
+              font-size: 16px;
+              margin: 0 10px;
+            }
+            &>span:nth-child(1){
+              margin-left: 20px;
+              color: #4C67E7;
+            }
+            &>span:nth-child(2){
+              margin: 0;
+              color: #999999;
+            }
+            &>span:nth-child(3){
+              color: #333333;
+            }
+        }
+        .h-backright{
+          &>button{
+            width: 80px;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            padding: 8px 10px;
+          }
+
+        }
+      }
+    }
 
   .h-content {
     background: white;

@@ -1,51 +1,77 @@
 <template>
     <div class="edit-input">
-        <div class="inputlist" v-for="(item, index) in titlelist" :key="index">
-            <div v-if="shownum" >
-                <el-input 
-                    placeholder="请输入内容"
-                    v-model="modellist[index]"
-                    v-if="index < 2"
-                    clearable>
+        <div class="inputlist">
+            <div class="listleft">零件号</div>
+            <div class="listright"><span> L4FD 941 004 A</span></div>
+        </div>
+        <div class="inputlist">
+            <div class="listleft">零件名称</div>
+            <div class="listright">
+                 <el-input 
+                    size="medium"
+                    placeholder="大灯"
+                    >
                     </el-input>
             </div>
-            <div v-else>
-                <el-input
-                placeholder="请输入内容"
-                v-model="modellist[index]"
-                clearable>
-                </el-input>
-            </div>
-            
         </div>
-        <div @click="changeShownow">clickhid</div>
-        <div class="upload-container"
-            v-if="!imgChange">
-            <el-upload
-              class="upload"
-              ref='upload'
-              drag
-              :show-file-list="false"
-              action="https://jsonplaceholder.typicode.com/posts/"
-              :auto-upload="false"
-              :on-change="fileChange">
-              <i class="el-icon-upload"></i>
-              <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
-            </el-upload>
-          </div>
-          <div class="cropper-container"
-            v-else>
-            <vue-cropper
-              ref="cropper"
-              :img="cropImg"
-              :outputSize="1"
-              outputType="png"
-              :autoCrop="true"
-              :autoCropWidth="180"
-              :autoCropHeight="180"
-              :fixedBox="true" />
-            <el-button class="cropper-back" @click="cropperBack">重新选择</el-button>
-          </div>
+        <div class="inputlist">
+            <div class="listleft">品牌状态</div>
+            <div class="listright">
+                <el-radio v-model="partstate" label="1" name="上线">上线</el-radio>
+                <el-radio v-model="partstate" label="2" name="下线">下线</el-radio>
+            </div>
+        </div>
+        <div class="inputlist">
+            <div class="listleft">产地</div>
+            <div class="listright">
+                <el-radio v-model="partlocation" label="1" name="国产">国产</el-radio>
+                <el-radio v-model="partlocation" label="2" name="进口">进口</el-radio>
+            </div>
+        </div>
+        <div class="inputlist">
+            <div class="listleft">品质</div>
+            <div class="listright">
+                <el-radio v-model="partquality" label="1" name="原厂件">原厂件</el-radio>
+                <el-radio v-model="partquality" label="2" name="品牌件">品牌件</el-radio>
+            </div>
+        </div>
+
+         <div class="inputlist">
+            <div class="listleft">邮费</div>
+            <div class="listright">
+                <el-radio v-model="partpostage" label="1" name="包邮">包邮</el-radio>
+                <el-radio v-model="partpostage" label="2" name="到付">到付</el-radio>
+            </div>
+        </div>
+
+        <div class="inputlist">
+            <div class="listleft">售卖数量</div>
+            <div class="listright">
+                 <el-input
+                    size="medium" 
+                    placeholder="10"
+                    >
+                    </el-input>
+                <span>库存（10）</span>
+            </div>
+        </div>
+        <div class="inputlist">
+            <div class="listleft">零售价(¥)</div>
+            <div class="listright">
+                 <el-input
+                    size="medium" 
+                    placeholder="3329.00"
+                    >
+                    </el-input>
+                <span>底价（¥3329.00）</span>
+            </div>
+        </div>
+        <div class="inputlist inputlistspecial">
+            <div class="listleft">商品图片</div>
+            <div class="listright">
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -53,8 +79,10 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import VueCropper from "./cropper.vue";
-import { Dialog, Upload, Input, InputNumber , Checkbox ,CheckboxGroup} from "element-ui";
+// import VueUpimg from './upimg.vue';
+import { Dialog,Radio, Upload, Input, InputNumber , Checkbox ,CheckboxGroup} from "element-ui";
 Vue.use(Dialog);
+Vue.use(Radio);
 Vue.use(Upload);
 Vue.use(Input);
 Vue.use(InputNumber);
@@ -64,18 +92,15 @@ Vue.use(CheckboxGroup);
 export default {
   data() {
     return {
-        shownum:false, //测试
-        titlelist:['aaa', 'bbb', 'ccc', 'ddd'],
-        modellist:['','b','c'],
-
-        dialogVisible: true,
-        cropImg: "", // 需要裁剪的图片链接
-        imgChange: false, // 图片是否变化，决定显示那个图片处理工具
+        partstate:'1',
+        partlocation: '1',
+        partquality: '1',
+        partpostage: '1',
 
     };
   },
   components:{
-      VueCropper
+      VueCropper,
   },
   computed: {
       
@@ -91,9 +116,6 @@ export default {
     cropperBack() {
       this.imgChange = false;
       this.cropImg = "";
-    },
-    changeShownow(){
-        this.shownum = !this.shownum
     }
   }
 };
@@ -104,93 +126,42 @@ export default {
   @sColor: #0063ff;
   @warningColor: #ff001f;
     .edit-input{
-        .upload-container {
-        position: relative;
-        height: 180px;
-        margin-bottom: 60px;
+        padding-top: 10px;
+        background: #FFFFFF;
+        .inputlist{
+            display: flex;
+            flex-direction: row;
+            min-height: 40px;
+            align-items: center;
 
-        .upload {
-            height: 180px;
-            padding: 0 80px;
-        }
+            .listleft{
+                width: 10%;
+                padding-left: 20px;
+                font-size: 14px;
+                color: #999999;
+            }
 
-        .no-img {
-            position: absolute;
-            right: 20px;
-            bottom: 0;
-            color: @warningColor;
-        }
-        }
+            .listright{
+                width: 90%;
 
-        .cropper-container {
-        position: relative;
-        width: auto;
-        height: 180px;
-        // padding: 0 80px;
-        margin-bottom: 60px;
+                .el-input{
+                    width: 20%;
+                    input{
+                        height: 32px;
+                    }
+                }
 
-        .cropper-back {
-            position: absolute;
-            right: 88px;
-            bottom: -40px;
-            padding: 6px 20px;
-            color: @sColor;
-            border: 1px solid @sColor;
-        }
-        }
-
-        .p-cp {
-        width: 160px;
-        margin-left: 20px;
-        }
-
-        .p-count-container {
-        margin-top: 10px;
-
-        .p-count {
-            .p-cp;
-        }
-        }
-
-        .p-price-container {
-        position: relative;
-        margin-top: 10px;
-
-        .money {
-            position: absolute;
-            top: 10px;
-            left: 70px;
-        }
-
-        .d-price {
-            .p-cp;
-        }
-        }
-
-        .suggest {
-        color: #999;
-        }
-
-        .warning {
-        color: @warningColor;
-        }
-
-        .apply-container {
-        width: 100%;
-        text-align: center;
-
-        .apply {
-            width: 194px;
-            padding: 12px 12px;
-            margin-top: 10px;
-            background: @sColor;
-            color: white;
-
-            &:active,
-            &:hover {
-            border: 1px solid @sColor;
+                &>label{
+                    width: 80px;
+                }
+                
             }
         }
+        .inputlistspecial{
+            display: flex;
+            flex-direction: row;
+            min-height: 40px;
+            align-items: flex-start;
+        }
     }
-}
 </style>

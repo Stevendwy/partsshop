@@ -2,18 +2,17 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="{{icon_url}}" type="image/x-icon">  
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="renderer" content="webkit"> 
-  <title>{{title_name}}</title>
-  <link rel="stylesheet" href="./static/css/login.css">
+  <title>小麦汽配</title>
+  <link rel="stylesheet" href="/sp/static/css/login.css">
 </head>
 <body>
   <div class="header-container">
     <div class="header">
-      <img class="logo" src="./static/img/axiao/p_xiaomai.png" alt="logo"/>
+      <img class="logo" src="/sp/static/img/p_xiaomai.png" alt="logo"/>
       <div class="utils">
-        <button class="empty" onclick="location.href='/regist'">注册</button>
+        <button class="empty" onclick="location.href='/user/register'">注册</button>
         <button id="login-button" class="special" onclick="history.go(0)">登录</button>
       </div>
     </div>
@@ -69,10 +68,10 @@
     <!-- <a class="cer" href="http://www.miitbeian.gov.cn/">浙ICP备：17026959号-3</a> -->
   </div>
 
-  <script src="./static/js/polyfill.min.js"></script>
-  <!-- <script defer src="/static/js/vue.js"></script> -->
-  <script defer src="./static/js/vue.min.js"></script>
-  <script src="./static/js/axios.min.js"></script>
-  <script defer src="./static/js/login.js"></script>
+  <script src="/sp/js/polyfill.min.js"></script>
+  <!-- <script defer src="/js/vue.js"></script> -->
+  <script defer src="/sp/js/vue.min.js"></script>
+  <script src="/sp/js/axios.min.js"></script>
+  <script defer src="/sp/js/login.js"></script>
 </body>
 </html>

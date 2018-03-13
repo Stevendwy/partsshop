@@ -76,7 +76,8 @@ export default {
   },
   mounted() {
     this.initialCkecked();
-    if (this.naviSelectedPath !== "/cart") this.aList(); // 购物车信息
+    // if (this.naviSelectedPath !== "/cart") this.aList(); 
+    // 购物车信息
 
     this.$store.dispatch("aTheme");
   },

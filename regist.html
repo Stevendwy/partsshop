@@ -2,21 +2,20 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" href="{{icon_url}}" type="image/x-icon">  
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="renderer" content="webkit"> 
-  <title>{{title_name}}</title>
-  <link rel="stylesheet" href="/static/css/regist.css">
-  <link href="/static/css/theme-chalk.css" rel="stylesheet">
+  <title>小麦汽配</title>
+  <link rel="stylesheet" href="/sp/static/css/regist.css">
+  <link href="/sp/static/css/theme-chalk.css" rel="stylesheet">
   <!-- <link href="https://cdn.bootcss.com/element-ui/2.0.7/theme-chalk/index.css" rel="stylesheet"> -->
 </head>
 <body>
   <div class="header-container">
     <div class="header">
-      <img id="logo" class="logo" alt="logo" src="./static/img/axiao/p_xiaomai1.png"/>
+      <img id="logo" class="logo" alt="logo" src="/sp/static/img/p_xiaomai1.png"/>
       <div class="utils">
         <button class="empty" onclick="history.go(0)">注册</button>
-        <button class="special" onclick="location.href='/login'">登录</button>
+        <button class="special" onclick="location.href='/user/login'">登录</button>
       </div>
     </div>
   </div>
@@ -26,7 +25,7 @@
     <div class="regist-container">
       <div class="regist">
         <span>新用户注册</span>
-        <div class="input-container"><input v-model="userInfo.phone" placeholder="手机号" autofocus /><span>*</span></div>
+        <div class="input-container"><input v-model="userInfo.username" placeholder="手机号" autofocus /><span>*</span></div>
         <div class="input-container">
           <input v-model="userInfo.sms_code" placeholder="验证码" />
           <button class="check-button"
@@ -34,7 +33,7 @@
           <span>*</span>
         </div>
         <div class="input-container"><input v-model="userInfo.password" placeholder="密码" type="password" /><span>*</span></div>
-        <div class="input-container"><input v-model="userInfo.real_name" placeholder="用户姓名" /><span>*</span></div>
+        <div class="input-container"><input v-model="userInfo.name" placeholder="用户姓名" /><span>*</span></div>
         <div class="input-container"><input v-model="userInfo.company" placeholder="公司名称" /><span>*</span></div>
         <div class="input-container">
           <el-cascader
@@ -59,7 +58,7 @@
           <div class="show-box" />
         </label>
         <button @click="regist">注册<img id="little-mum" src="https://007vin.com/img/load.gif" /></button>
-        <div class="login-container">已有账号？<a href="/login">点击登录</a></div>
+        <div class="login-container">已有账号？<a href="/user/login">点击登录</a></div>
       </div>
       <Delegate v-if="delegateShow" @close="delegateShow=false" @readed="checked=true" />
     </div>
@@ -181,8 +180,8 @@
     <!-- <a class="cer" href="http://www.miitbeian.gov.cn/">浙ICP备：17026959号-3</a> -->
   </div>  
   <!-- <script defer src="https://cdn.bootcss.com/vue/2.5.3/vue.js"></script> -->
-  <script src="/static/js/polyfill.min.js"></script>
-  <script src="/static/js/axios.min.js"></script>
+  <script src="/sp/js/polyfill.min.js"></script>
+  <script src="/sp/js/axios.min.js"></script>
   <script>
     // var logo = document.getElementById('logo')
     // axios.get('/system/community/theme')
@@ -193,8 +192,8 @@
     //     alert(err)
     //   })
   </script>
-  <script defer src="/static/js/vue.min.js"></script>
-  <script defer src="/static/js/element-ui.js"></script>
-  <script defer defer src="/static/js/regist.js"></script>
+  <script defer src="/sp/js/vue.min.js"></script>
+  <script defer src="/sp/js/element-ui.js"></script>
+  <script defer defer src="/sp/js/regist.js"></script>
 </body>
 </html>

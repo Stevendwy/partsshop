@@ -22,12 +22,12 @@ let Regist = Vue.extend({
     return {
       delegateShow: false, // 显示协议
       userInfo: {
-        phone: '',
+        username: '',
         sms_code: '',
         password: '',
-        real_name: '',
+        name: '',
         company: '',
-        area: '',
+        city: '',
         company_type: '汽配商'
       }, // 用户信息
       checked: false,
@@ -49,10 +49,10 @@ let Regist = Vue.extend({
   },
   computed: {
     selectorReq:function () {
-      return {p_code: this.code}
+      return this.code
     },
     registReq:function () {
-      return Object.assign({}, this.userInfo, {area: this.code})
+      return Object.assign({}, this.userInfo, {city: this.code})
     }
   },
   methods: {
@@ -60,7 +60,7 @@ let Regist = Vue.extend({
       this.delegateShow = true
     },
     getCertificationCode:function () {
-      if(this.userInfo.phone.length < 1) {
+      if(this.userInfo.username.length < 1) {
         alert('请输入手机号')
         return
       }
@@ -70,7 +70,7 @@ let Regist = Vue.extend({
 
       let self = this
 
-      axios.get('/community/base/sms_code', {params: {action: 'register', phone: this.userInfo.phone}})
+      axios.post('/smscode', {type: '1', phone: this.userInfo.username})
         .then(function(res) {
           if(res.data.code !== 1) {
             alert(res.data.msg)
@@ -93,7 +93,7 @@ let Regist = Vue.extend({
     regist:function () {
       let registReq = this.registReq
 
-      if (registReq.phone.length < 1) {
+      if (registReq.username.length < 1) {
         alert('请输入手机号')
         return
       }
@@ -105,7 +105,7 @@ let Regist = Vue.extend({
         alert('请输入密码')
         return
       }
-      else if (registReq.real_name.length < 1) {
+      else if (registReq.name.length < 1) {
         alert('请输入姓名')
         return
       }
@@ -113,7 +113,7 @@ let Regist = Vue.extend({
         alert('请输入公司名称')
         return
       }
-      else if (registReq.area.length < 1) {
+      else if (registReq.city.length < 1) {
         alert('请选择城市')
         return
       }
@@ -122,12 +122,12 @@ let Regist = Vue.extend({
         return
       }
       
-      axios.post('/community/user/reg', this.registReq)
+      axios.post('/user/register', this.registReq)
         .then(function(res) {
           let data = res.data
           if (data.code === 1) {
             alert('注册成功，前往登录')
-            location.href = "/login"
+            location.href = "/user/login"
           }
           else alert(data.msg)
         })
@@ -139,10 +139,11 @@ let Regist = Vue.extend({
       return type === this.userInfo.company_type ? 'type-selected' : 'type'
     },
     handleAreaClick:function (value) {
+      console.log(value)
       let level = 1
       let indexes = []
       if(value) {
-        this.userInfo.area = '' // 取消选中地区
+        this.userInfo.city = '' // 取消选中地区
         if(value[1]) {
           value = value[1]
           this.code = value
@@ -165,7 +166,7 @@ let Regist = Vue.extend({
       this.code = value
       let self = this
 
-      axios.get('/community/address/selector', {params: this.selectorReq})
+      axios.get('/address/citylist', {city_code: this.selectorReq})
         .then(function(res) {
           if(res.data.code === 1) {
             let data = res.data.data

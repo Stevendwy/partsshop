@@ -17,7 +17,7 @@ html body button {
 .header-container {
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 44px;
   width: 100%;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
 }
@@ -30,11 +30,7 @@ html body button {
 }
 .header-container .header .logo {
   width: auto;
-  height: 60px;
-  margin: 0 auto;
-}
-.header-container .header .utils{
-  display: none;
+  height: 30px;
 }
 .header-container .header .utils button {
   width: 80px;
@@ -57,7 +53,7 @@ html body button {
   align-items: center;
   width: 1024px;
   height: 400px;
-  background: url(../img/axiao/banner.png) 0 0 / 100% auto no-repeat;
+  background: url(/sp/static/img/banner.png) 0 0 / 100% auto no-repeat;
 }
 .account-container .account {
   display: flex;
@@ -81,11 +77,10 @@ html body button {
   width: 356px;
   height: 360px;
   margin-right: 40px;
-  /* background: white; */
+  background: white;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   border-radius: 4px;
   display: none;
-  background-image: url("../img/axiao/p_bg_white.png");
 }
 .account-container .login > .title {
   color: #ec6337;
@@ -192,10 +187,9 @@ html body button {
   width: 356px;
   height: 360px;
   margin-right: 40px;
-  /* background: white; */
+  background: white;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
   border-radius: 4px;
-  background-image: url("../img/axiao/p_bg_white.png");
 }
 .account-container > .forget > .title {
   color: #ec6337;
@@ -285,8 +279,7 @@ html body button {
   color: white;
 }
 #companys {
-  /* display: flex; */
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
@@ -315,19 +308,11 @@ html body button {
   height: auto;
 }
 .bottom {
-  /* display: flex;
-  align-items: center;
-  width: 1024px;
-  height: 72px;
-  background-color: #333; */
   display: flex;
   align-items: center;
   width: 1024px;
   height: 72px;
   background-color: #333;
-  text-align: center;
-  justify-content: center;
-  flex-direction: column;
 }
 .bottom .about {
   font-size: 14px;

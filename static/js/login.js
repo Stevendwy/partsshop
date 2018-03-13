@@ -33,8 +33,8 @@ let Login = Vue.extend({
   template: '#login',
   mounted: function() {
     this.handleLoginDisplay()
-    this.username = localStorage.getItem('ppy-alliance-username') || ''
-    this.password = localStorage.getItem('ppy-alliance-password') || ''
+    this.username = localStorage.getItem('xiaomai-username') || ''
+    this.password = localStorage.getItem('xiaomai-password') || ''
     if(this.username.length > 0 || this.password.length > 0) this.checked = true
   },
   data: function() {
@@ -54,34 +54,36 @@ let Login = Vue.extend({
         password = this.password
       }
 
-      localStorage.setItem('ppy-alliance-username', username)
-      localStorage.setItem('ppy-alliance-password', password)
+      localStorage.setItem('xiaomai-username', username)
+      localStorage.setItem('xiaomai-password', password)
     }
   },
   methods: {
     handleLoginDisplay:function () {
       let login = this.$refs.login
       let loginButton = document.querySelector('#login-button')
-  
-      if(location.search.match(/frominside=true/)) {
-        login.style.display = 'none'
-        loginButton.style.display = 'none'
+      login.style.display = 'flex'
+      loginButton.style.display = 'inline-block'
+
+      // if(location.search.match(/frominside=true/)) {
+      //   login.style.display = 'none'
+      //   loginButton.style.display = 'none'
         
-        axios.get('http://www.yhcqp.com/community/user/profile')
-          .then(function(res) {
-            if(!res.data || res.data.code !== 1) {
-              login.style.display = 'flex'
-              loginButton.style.display = 'inline-block'
-            }
-          })
-          .catch(function(err) {
-            login.style.display = 'flex'
-            loginButton.style.display = 'inline-block'
-          })
-      }else {
-        login.style.display = 'flex'
-        loginButton.style.display = 'inline-block'
-      }
+      //   axios.get('http://www.yhcqp.com/community/user/profile')
+      //     .then(function(res) {
+      //       if(!res.data || res.data.code !== 1) {
+      //         login.style.display = 'flex'
+      //         loginButton.style.display = 'inline-block'
+      //       }
+      //     })
+      //     .catch(function(err) {
+      //       login.style.display = 'flex'
+      //       loginButton.style.display = 'inline-block'
+      //     })
+      // }else {
+      //   login.style.display = 'flex'
+      //   loginButton.style.display = 'inline-block'
+      // }
     },
     login: function() {
       if (this.username.length < 1) {
@@ -101,15 +103,15 @@ let Login = Vue.extend({
 
       let self = this
 
-      axios.post('http://www.yhcqp.com/community/login', body)
+      axios.post('/user/login', body)
         .then(function(res) {
           let data = res.data
           if (data.code === 1) {
             if(self.checked) {
-              localStorage.setItem('ppy-alliance-username', self.username)
-              localStorage.setItem('ppy-alliance-password', self.password)
+              localStorage.setItem('xiaomai-username', self.username)
+              localStorage.setItem('xiaomai-password', self.password)
             }
-            location.href = "./index.html"
+            location.href = "/"
           }
           else alert(data.msg)
         })
@@ -118,7 +120,7 @@ let Login = Vue.extend({
         })
     },
     regist: function() {
-      location.href='/regist'
+      location.href='/user/register'
     },
     forget: function() {
       this.$emit('route', {component: 'Forget'})
@@ -131,7 +133,7 @@ let Forget = Vue.extend({
   data: function() {
     return {
       inputData: {
-        phone: localStorage.getItem('ppy-alliance-username') || '',
+        phone: localStorage.getItem('xiaomai-username') || '',
         sms_code: '',
         password: '',
         checkPassword: ''

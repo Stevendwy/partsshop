@@ -75,17 +75,17 @@ export default new Vuex.Store({
   },
   actions: {
     untouch(ct) {
-      return (
-        axios.get('/community/order/untouch')
-          .then(res => {
-            if(!res.data) return
+      // return (
+      //   axios.get('/community/order/untouch')
+      //     .then(res => {
+      //       if(!res.data) return
 
-            ct.commit('updateUntouch', { data: res.data })
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      )
+      //       ct.commit('updateUntouch', { data: res.data })
+      //     })
+      //     .catch(err => {
+      //       console.log(err)
+      //     })
+      // )
     },
     touched(ct, payload) {
       let channel = payload.channel
@@ -93,32 +93,32 @@ export default new Vuex.Store({
         order_id: 'any',
         channel: channel
       }
-      return (
-        u.post('/community/order/touched', obj)
-          .then(res => {
-            if (channel === 'buyer') ct.commit('clearUntouchBuyer')
-            else ct.commit('clearUntouchSeller')
-          })
-      )
+      // return (
+      //   u.post('/community/order/touched', obj)
+      //     .then(res => {
+      //       if (channel === 'buyer') ct.commit('clearUntouchBuyer')
+      //       else ct.commit('clearUntouchSeller')
+      //     })
+      // )
     },
     aUserInfo(ct, payload) {
-      return (
-        u.get("/community/user/profile")
-          .then(res => {
-            ct.commit('updateUserInfo', res)
-            return res
-          })
-      )
+      // return (
+      //   u.get("/community/user/profile")
+      //     .then(res => {
+      //       ct.commit('updateUserInfo', res)
+      //       return res
+      //     })
+      // )
     },
     aTheme({ commit }) {
-      return (
-        u.get('/system/community/theme')
-          .then(res => {
-            if(!res) return
+      // return (
+      //   u.get('/system/community/theme')
+      //     .then(res => {
+      //       if(!res) return
             
-            commit('updateTheme', {theme: res.data})
-          })
-      )
+      //       commit('updateTheme', {theme: res.data})
+      //     })
+      // )
     }
   }
 })

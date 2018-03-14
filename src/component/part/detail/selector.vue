@@ -60,7 +60,7 @@ export default {
     border: 1px solid #cac9ca;
     border-radius: 4px;
     box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
-    background: #f9f9f9 url(/static/img/spirit.png) 4px -88px ~"/" 40px auto no-repeat;
+    background: #f9f9f9 url(/sp/static/img/spirit.png) 4px -88px ~"/" 40px auto no-repeat;
     cursor: pointer;
   }
 

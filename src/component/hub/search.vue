@@ -103,7 +103,7 @@ export default {
         right: 0;
         width: 40px;
         height: 40px;
-        background: url(/static/img/spirit.png) 0 -120px ~"/" 40px auto
+        background: url(/sp/static/img/spirit.png) 0 -120px ~"/" 40px auto
           no-repeat;
         cursor: pointer;
       }

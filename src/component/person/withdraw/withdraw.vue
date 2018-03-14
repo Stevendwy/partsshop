@@ -268,7 +268,7 @@ export default {
     display: inline-block;
     width: 40px;
     height: 40px;
-    background: url(~/static/img/spirit.png) 0 -520px ~"/" 40px auto no-repeat;
+    background: url(/sp/static/img/spirit.png) 0 -520px ~"/" 40px auto no-repeat;
     cursor: default;
   }
 

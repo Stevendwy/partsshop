@@ -72,32 +72,32 @@ export default {
   },
   mounted() {
     this.contentList = []; // 初始化清空数据
-    this.aList().then(res => {
-      if (res.total_page === this.page || !res.total_page) this.noMore = true;
-      this.isLoading = false;
-    });
+    // this.aList().then(res => {
+    //   if (res.total_page === this.page || !res.total_page) this.noMore = true;
+    //   this.isLoading = false;
+    // });
   },
   methods: {
     ...Vuex.mapMutations("cart", ["updateOrders"]),
     ...Vuex.mapMutations(["updateBadgeCount"]),
     aList(payload) {
-      return u.get("/community/sailling", payload).then(res => {
+      // return u.get("/community/sailling", payload).then(res => {
 
-        if (!res) return;
+      //   if (!res) return;
 
-        payload = payload || {}; // 安全处理
+      //   payload = payload || {}; // 安全处理
 
-        if (payload.loadMore)
-          this.contentList.push(...res.data); // loadMore 在后方追加
-        else this.contentList = res.data; // 其他直接替换
+      //   if (payload.loadMore)
+      //     this.contentList.push(...res.data); // loadMore 在后方追加
+      //   else this.contentList = res.data; // 其他直接替换
 
-        let cities = res.item_city;
-        if(cities) cities.unshift("全部");
-        else cities = []
-        this.cities = cities;
+      //   let cities = res.item_city;
+      //   if(cities) cities.unshift("全部");
+      //   else cities = []
+      //   this.cities = cities;
 
-        return res;
-      });
+      //   return res;
+      // });
     },
     cartClick(item) {
       this.handleCart({ item });

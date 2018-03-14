@@ -603,7 +603,7 @@ export default {
           .sale-shopping-car {
             width: 40px;
             height: 40px;
-            background: url(/static/img/spirit.png) 0 -40px ~"/" 40px auto
+            background: url(/sp/static/img/spirit.png) 0 -40px ~"/" 40px auto
               no-repeat;
             cursor: pointer;
           }

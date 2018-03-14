@@ -3,7 +3,7 @@ module.exports = {
   context: process.cwd(),
   output: {
     path: `${__dirname}/dist`,
-    publicPath: 'dist/',
+    publicPath: '/sp/js/',
     chunkFilename: '[name].js',
     filename: 'app.js'
   },
@@ -34,7 +34,7 @@ module.exports = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: '/static/img/[name].[ext]'
+          name: '/sp/static/img/[name].[ext]'
         }
       }
     ]

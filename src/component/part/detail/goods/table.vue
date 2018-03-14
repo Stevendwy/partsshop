@@ -148,13 +148,13 @@ export default {
         .sale-shopping-cart {
           width: 40px;
           height: 40px;
-          background: url(/static/img/spirit.png) 0 -40px ~"/" 40px auto no-repeat;
+          background: url(/sp/static/img/spirit.png) 0 -40px ~"/" 40px auto no-repeat;
           cursor: pointer;
         }
 
         .sale-shopping-cart-selected {
           .sale-shopping-cart;
-          background: url(/static/img/spirit.png) 0 -320px ~"/" 40px auto no-repeat;
+          background: url(/sp/static/img/spirit.png) 0 -320px ~"/" 40px auto no-repeat;
         }
       }
     }

@@ -101,7 +101,7 @@ export default {
       .o-print {
         width: 68px;
         height: 32px;
-        background: #0076FF url(~/static/img/spirit.png) 14px -564px ~'/' 40px auto no-repeat;
+        background: #0076FF url(/sp/static/img/spirit.png) 14px -564px ~'/' 40px auto no-repeat;
         border-radius: 4px;
       }
 

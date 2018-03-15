@@ -4,21 +4,21 @@ const superagent = require('superagent')
 const bodyParser = require('body-parser');
 
 // const target = 'http://www.yhcqp.com'
-const target = 'http://yhcqp.youfan.pub'
+const target = 'http://192.168.10.111:6601'
 
 let cookie = ''
 
 superagent
-  .post(target + '/community/login')
-  // .send({username: '15689799395', password: '123123'})
-  .send({username: '17682302034', password: 'aa123456'})
+  .post(target + '/user/login')
+  .send({username: '18337125987', password: 'aa123456'})
   .end((err, res) => {
-    // console.log(res.body)
+    console.log(res.body)
     if(res.body.code === 1) console.log('登录成功')
     else console.log(res.body)
     // 获取 Cookie, beta 处理有问题, 需要如下处理才能登陆
-    cookie = res.header['set-cookie'].toString()
-    cookie = cookie.replace(/(Path=\/),/g, '$1;') // 莫名的一个逗号, 需要处理成 ';'
+    // cookie = res.header['set-cookie'].toString()
+    // cookie = cookie.replace(/(Path=\/),/g, '$1;')
+    // cookie = cookie.replace(/(Path=\/),/g, '$1;') // 莫名的一个逗号, 需要处理成 ';'
   })
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -45,7 +45,7 @@ function agentPost(req, res) {
       if(sRes.body.code !== 1) console.log(sRes.body)
       // console.log(sRes.body)
       res.set('Content-Type', 'application/json');      
-      res.send(JSON.stringify(Object.assign(sRes.body, { isLocal: true }))) // 测试标记
+      res.send(JSON.stringify(Object.assign(sRes.body))) // 测试标记
       // res.end(JSON.stringify(sRes.body))
     })
 }
@@ -59,7 +59,7 @@ function agentGet(req, res) {
     .end((err, sRes) => {
       // console.log(sRes.body)
       res.set('Content-Type', 'application/json');      
-      res.send(JSON.stringify(Object.assign(sRes.body, { isLocal: true })))
+      res.send(JSON.stringify(Object.assign(sRes.body)))
     })
 }
 
@@ -72,7 +72,7 @@ function agentDelete(req, res) {
     .end((err, sRes) => {
       // console.log(sRes.body)
       res.set('Content-Type', 'application/json');      
-      res.send(JSON.stringify(Object.assign(sRes.body, { isLocal: true })))
+      res.send(JSON.stringify(Object.assign(sRes.body)))
     })
 }
 

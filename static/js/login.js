@@ -163,7 +163,7 @@ let Forget = Vue.extend({
 
       let self = this
 
-      axios.get('/community/base/sms_code', {params: {action: 'findpwd', phone: this.inputData.phone}})
+      axios.post('/smscode', {type: 'findpwd', phone: this.inputData.phone})
         .then(function(res) {
           self.checkStr = self.loopTime + 's'
           self.checkLoop = setInterval(function() {

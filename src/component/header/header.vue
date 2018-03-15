@@ -14,7 +14,8 @@
         span.badge-icon(v-show='badgeCount') {{badgeCount}}
         span 购物车
       div(:class="naviSelectedPath.includes(paths[4]) ? 'header-navi-selected' : 'header-navi'", @click='click("/buyer")') 已买到{{isYHC ? '货' : '商'}}品
-      div(:class="inseller ? 'header-navi-selected' : 'header-navi'", @click='click(paths[5])', v-if='this.userInfo.is_seller')
+      //- div(:class="inseller ? 'header-navi-selected' : 'header-navi'", @click='click(paths[5])', v-if='this.userInfo.is_seller')
+      div(:class="inseller ? 'header-navi-selected' : 'header-navi'", @click='click(paths[5])')
         el-dropdown(:show-timeout='0', :hide-timeout='0', @command='handleSellerCommand')
           span.el-dropdown-link 卖家中心
             i.el-icon-arrow-down.el-icon--right

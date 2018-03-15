@@ -8,8 +8,8 @@ export default {
   },
   cartNullBackground(state, getters) {
     return getters.isYHC ?
-      "background: url(/static/img/p_shop.png) center / 200px auto no-repeat;" :
-      "background: url(/static/img/p_shop_hwq.png) center / 200px auto no-repeat;"
+      "background: url(/sp/static/img/p_shop.png) center / 200px auto no-repeat;" :
+      "background: url(/sp/static/img/p_shop_hwq.png) center / 200px auto no-repeat;"
   },
   centerNullBackground(state, getters) {
     return getters.isYHC ?
@@ -18,8 +18,8 @@ export default {
   },
   hubNullUrl(state, getters) {
     return getters.isYHC ?
-      "/static/img/p_kucun.png" :
-      "/static/img/p_kucun_hwq.png"
+      "/sp/static/img/p_kucun.png" :
+      "/sp/static/img/p_kucun_hwq.png"
   },
   partSearchPosition(state, getters) {
     return getters.isYHC ?

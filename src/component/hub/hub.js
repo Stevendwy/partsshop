@@ -91,7 +91,7 @@ export default {
   actions: {
     aList(ct) {
       return (
-        u.get("/community/inventory", ct.state.currentReq)
+        u.get("/inventory/list", ct.state.currentReq)
           .then(res => {
             if(!res) return
 

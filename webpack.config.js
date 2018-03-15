@@ -2,7 +2,7 @@ module.exports = {
   entry: `./src/main.js`,
   context: process.cwd(),
   output: {
-    path: `${__dirname}/dist`,
+    path: `${__dirname}/sp/js/`,
     publicPath: '/sp/js/',
     chunkFilename: '[name].js',
     filename: 'app.js'

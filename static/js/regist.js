@@ -166,7 +166,7 @@ let Regist = Vue.extend({
       this.code = value
       let self = this
 
-      axios.get('/address/citylist', {city_code: this.selectorReq})
+      axios.get('/address/citylist', {params:{city_code: this.selectorReq}})
         .then(function(res) {
           if(res.data.code === 1) {
             let data = res.data.data

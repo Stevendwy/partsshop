@@ -139,7 +139,7 @@ let Regist = Vue.extend({
       return type === this.userInfo.company_type ? 'type-selected' : 'type'
     },
     handleAreaClick:function (value) {
-      console.log(value)
+      // console.log(value)
       let level = 1
       let indexes = []
       if(value) {
